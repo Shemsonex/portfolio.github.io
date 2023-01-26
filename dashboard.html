@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="richtexteditor/richtexteditor/rte_theme_default.css" />
+    <script type="text/javascript" src="richtexteditor/richtexteditor/rte.js"></script>
+    <script type="text/javascript" src='richtexteditor/richtexteditor/plugins/all_plugins.js'></script>
 </head>
 
 <body>
@@ -149,7 +152,7 @@
                       
                         <div class="table-div"  style="width: 80%;">
                                                                                 
-                                <table class="table" width="100%">
+                                <table class="table1" width="100%">
                                         <thead>
                                         <th>N</th>
                                         <th>Title</th>
@@ -179,12 +182,34 @@
                                 </table>
                                 <h1 class="page-title"><b><u>Create/Edit Post</u></b></h1><br>
                                 <form method="post" enctype="multipart/form-data" action="">  
-                                  
-                                    <input type="text" name="title" value="" placeholder="Title">
-                                    <label style="float: left; margin: 5px auto 5px;">Featured image</label>&nbsp;&nbsp;
-                                    <input type="file" name="featured_image" ><br>
-                                    <label style="float: left; margin: 5px auto 5px;">Type your post</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <textarea name="body" id="body" cols="30" rows="10"></textarea><br>
+                                    <table class="table2">
+                                        <tr>
+                                            <td><label>Title</label></td>
+                                            <td><input class="formInput" type="text" name="title" value="" placeholder="Title"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Featured image</label></td>
+                                            <td><input class="formInput" type="file" name="featured_image"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 500px !important;"><label>Type your post</label></td>
+                                            <td><textarea name="body" id="div_editor1" cols="30" rows="10"></textarea></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Topic</label></td>
+                                            <td><select name="topic_id">
+                                                <option value="" selected disabled>Choose topic</option>                                       
+                                                    <option value="">Holidays</option>                                       
+                                                    <option value="">Sports</option>                                       
+                                                    <option value="">Nature</option>                                       
+                                                    <option value="">News</option>                                       
+                                            </select></td>
+                                        </tr>
+                                    </table>
+                                    <button style="padding: 15px;width: 200px;" type="submit" class="btn" name="create_post">Save Post</button>
+                                    
+                                    <!--                                    
+                                    <textarea name="body" id="div_editor1" cols="30" rows="10"></textarea><br>
                                     <label style="float: left; margin: 5px auto 5px;">Topic</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <select name="topic_id">
                                         <option value="" selected disabled>Choose topic</option>                                       
@@ -193,7 +218,7 @@
                                             <option value="">Nature</option>                                       
                                             <option value="">News</option>                                       
                                     </select><br><br><br>                                                                                 
-                                        <button type="submit" class="btn" name="create_post">Save Post</button>
+                                        <button type="submit" class="btn" name="create_post">Save Post</button> -->
                                                        
                                 </form>
                         </div>                        
@@ -233,6 +258,10 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        var editor1 = new RichTextEditor("#div_editor1");
+        //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
+    </script>
 </body>
 
 </html>

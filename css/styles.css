@@ -1048,7 +1048,8 @@ background-color: transparent;
   max-width: 1000px;
 }
 
-table { border-collapse: collapse; width: 70%; margin: 20px auto; }
+.table1 { border-collapse: collapse; width: 100%; margin: 20px auto; }
+.table2 { border-collapse: collapse; width: 100%; margin: 20px auto; }
 th, td { padding: 8px; text-align: left; border: 1px solid #ddd; }
 th { text-align: center;}
 
@@ -1096,6 +1097,15 @@ th { text-align: center;}
 }
 
 .formInput {
+  background-color: transparent;
+  border: 1px solid #64FFDA;
+  border-radius: 10px;
+  padding: 10px 0px;
+  width: 300px;
+  color: #00ffd0;
+}
+
+select {
   background-color: transparent;
   border: 1px solid #64FFDA;
   border-radius: 10px;
