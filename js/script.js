@@ -72,5 +72,16 @@ window.addEventListener("load", function () {
   let mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
   mobileNavLinks.forEach((el) => el.addEventListener("click", hideMobileMenu));
 
-  initExperienceSection();
+  // initExperienceSection();
+
+  let like = document.getElementById('like');
+  like.addEventListener('click',addlike);
+
+  function addlike() {
+    let num1 = document.getElementById('num1').innerHTML;
+    num1++;    
+    let num11 = document.getElementById('num1').innerText;
+    num11 = num1;
+  }
+
 });
