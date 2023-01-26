@@ -475,15 +475,15 @@ aside nav {
 .contact-section-title {
   font-size: 32px;
   font-family: "Fira code", Arial, Helvetica, sans-serif;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   color: #64FFDA;
 }
 
 .contact-subtitle {
-  font-family: "Calibri bold", Arial, Helvetica, sans-serif;
-  font-size: 50px;
+  font-family: "Fira code", Arial, Helvetica, sans-serif;
+  font-size: 30px;
   font-weight: bold;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .contact-text {
@@ -1101,6 +1101,7 @@ th { text-align: center;}
   border-radius: 10px;
   padding: 10px 0px;
   width: 300px;
+  color: #00ffd0;
 }
 
 .loginbtn {
@@ -1110,4 +1111,22 @@ th { text-align: center;}
   border-radius: 5px;
   color: #64FFDA;
   width: 100%;
+}
+
+.contact-card { 
+  padding: 50px;
+  display: block;
+  position: relative;
+  padding-top: 0;  ;  
+  background-color: transparent;
+  border: 1px solid #64FFDA;
+  border-radius: 15px;
+  text-align: left;
+  left: 20%;  
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
 }
