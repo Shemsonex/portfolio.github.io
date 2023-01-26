@@ -1075,3 +1075,39 @@ th { text-align: center;}
 	background-color: #0E7D92;
 	color: white;
 }
+.commentarea {
+  border-radius: 10px;
+}
+
+.attention {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #01B192;
+}
+
+.login-card { 
+  padding: 50px;
+  display: block;
+  position: relative;
+  padding-top: 0;  ;  
+  background-color: #202027;
+  border: 1px solid #64FFDA;
+  border-radius: 5%;
+}
+
+.formInput {
+  background-color: transparent;
+  border: 1px solid #64FFDA;
+  border-radius: 10px;
+  padding: 10px 0px;
+  width: 300px;
+}
+
+.loginbtn {
+  background-color: rgb(100, 255, 218, 0.2);
+  border: 1px solid #64FFDA;
+  padding: 15px;
+  border-radius: 5px;
+  color: #64FFDA;
+  width: 100%;
+}
