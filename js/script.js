@@ -82,6 +82,31 @@ window.addEventListener("load", function () {
     num1++;    
     let num11 = document.getElementById('num1').innerText;
     num11 = num1;
-  }
-
+  }  
 });
+
+let blogs = document.getElementById('blogs');
+let img = document.getElementById('img');
+let blogTitle = document.getElementById('blogTitle');
+let blogcard = document.getElementById('blog-card');
+let anchor = document.getElementById('anchor');
+// let myform = document.getElementById('myform');
+
+  fetch('http://127.0.0.1:8000/api/blogs')
+.then((response) => response.json())
+.then((data) => 
+data.forEach((b) => {
+  // console.log(b); 
+  blogs.innerHTML +=  `<div id="blog-card" class="blog-card"><a id="anchor" href="singleblog.html">                          
+      <img id="img" src="`+b.image+`" alt="" class="imgblogs">                            
+      <p id="blogTitle">`+b.title+`</p> </a>                               
+   </div>`     
+}),
+// blogs.innerHTML = JSON.stringify(data)
+);
+
+function myform(e){
+  alert(e)
+  e.preventDefault()
+  console.log(e)
+}
