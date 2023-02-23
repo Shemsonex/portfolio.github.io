@@ -1,6 +1,5 @@
 window.addEventListener("load", function () {
 
-
   function showMobileMenu() {
     var nav = document.getElementById("mobile-nav-wrapper");
     nav.style.visibility = "visible";
@@ -82,15 +81,89 @@ window.addEventListener("load", function () {
     num1++;    
     let num11 = document.getElementById('num1').innerText;
     num11 = num1;
-  }  
+  }    
 });
+
+var fileName = location.href.split("/").slice(-1); 
 
 let blogs = document.getElementById('blogs');
 let img = document.getElementById('img');
 let blogTitle = document.getElementById('blogTitle');
 let blogcard = document.getElementById('blog-card');
 let anchor = document.getElementById('anchor');
-// let myform = document.getElementById('myform');
+
+// console.log(fileName[0])
+if(fileName[0]==='login.html'){
+  let logincard = document.getElementById('login-card');
+  let email = document.getElementById('email');
+  let password = document.getElementById('password');
+  let loginbtn = document.getElementById('loginbtn');
+  let loginmsg = document.getElementById('login-msg');
+  loginbtn.addEventListener('click', loginfunc);
+
+  function loginfunc(){
+    // console.log(email.value+'--'+password.value)
+    async function postData(url = '', data = {}) {    
+      const response = await fetch(url, {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },      
+        body: JSON.stringify(data) 
+      });
+      return response.json(); 
+    }
+      
+    postData('http://127.0.0.1:8000/api/users/auth/login', { email: email.value, password: password.value })
+      .then((data) => {
+        console.log(data);       
+        if(data.Error){
+          loginmsg.innerHTML=data.Error
+        }else{
+          loginmsg.innerHTML=data.message        
+          setTimeout(Redirect(), 10000);        
+        }
+      });
+      function Redirect(){
+        window.location.href = "dashboard.html";
+      }
+  }
+}else{
+  let postblogtitle = document.getElementById('post-blog-title');
+  let postblogimage = document.getElementById('post-blog-image');
+  let postblogcontent = document.getElementById('div_editor1');
+  let postblogcategory = document.getElementById('post-blog-category');
+  let postblogbtn = document.getElementById('post-blog-btn');
+  postblogbtn.addEventListener('click', blogfunc);
+
+  function blogfunc(){
+    // console.log(postblogtitle.value+'--'+postblogimage.value+'--'+postblogcontent.value+'--'+postblogcategory.value)
+    async function postBlog(url = '', blog = {}) {    
+      const response = await fetch(url, {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },      
+        body: JSON.stringify(blog) 
+      });
+      return response.json(); 
+    }
+    
+    postBlog('http://127.0.0.1:8000/api/blogs', { title: postblogtitle.value, category: postblogcategory.value , content: postblogcontent.value })
+      .then((blog) => {
+        console.log(blog); 
+        // if(blog.Error){
+        //   loginmsg.innerHTML=blog.Error
+        // }else{
+        //   loginmsg.innerHTML=blog.message
+        //   window.location.href = "dashboard.html";
+        // }
+      });
+  }
+}
+
 
   fetch('http://127.0.0.1:8000/api/blogs')
 .then((response) => response.json())
@@ -104,9 +177,3 @@ data.forEach((b) => {
 }),
 // blogs.innerHTML = JSON.stringify(data)
 );
-
-function myform(e){
-  alert(e)
-  e.preventDefault()
-  console.log(e)
-}

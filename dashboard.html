@@ -55,7 +55,7 @@
         <div class="container">
             <nav>
                 <div class="navContainer">
-                    <a href="#home-section" rel="noopener" name="Home">
+                    <a href="login.html" rel="noopener" name="Home">
                         <img src="img/Logo.png" alt="Logo">
                     </a>
                     <div id="navLinks">
@@ -141,12 +141,12 @@
                     </div>
                     <br><br><br>
                     <div class="buttons">                        
-                        <a class="navLink" data-id="add-post-section">Add Posts</a>
+                        <a class="navLink" data-id="add-post-section">Add Blogs</a>
                     </div>
                 </div>
             </section>           
             <section id="add-post-section">
-                <h3 class="section-headline"><span class="section-number">01. </span> Create Post</h3>
+                <h3 class="section-headline"><span class="section-number">01. </span> Create Blog</h3>
                 <div class="projects-content">
                     <div class="container content">
                       
@@ -180,33 +180,33 @@
                                         </tr>                                   
                                     </tbody>
                                 </table>
-                                <h1 class="page-title"><b><u>Create/Edit Post</u></b></h1><br>
-                                <form method="post" enctype="multipart/form-data" action="">  
+                                <h1 class="page-title"><b><u>Create/Edit Blog</u></b></h1><br>
+                                <!-- <form method="post" enctype="multipart/form-data" action="">   -->
                                     <table class="table2">
                                         <tr>
                                             <td><label>Title</label></td>
-                                            <td><input class="formInput" type="text" name="title" value="" placeholder="Title"></td>
+                                            <td><input class="formInput" type="text" id="post-blog-title" name="title" value="" placeholder="Title"></td>
                                         </tr>
                                         <tr>
                                             <td><label>Featured image</label></td>
-                                            <td><input class="formInput" type="file" name="featured_image"></td>
+                                            <td><input class="formInput" type="file" id="post-blog-image" name="image"></td>
                                         </tr>
                                         <tr>
                                             <td style="width: 500px !important;"><label>Type your post</label></td>
                                             <td><textarea name="body" id="div_editor1" cols="30" rows="10"></textarea></td>
                                         </tr>
                                         <tr>
-                                            <td><label>Topic</label></td>
-                                            <td><select name="topic_id">
+                                            <td><label>Category</label></td>
+                                            <td><select id="post-blog-category" name="category">
                                                 <option value="" selected disabled>Choose topic</option>                                       
-                                                    <option value="">Holidays</option>                                       
-                                                    <option value="">Sports</option>                                       
-                                                    <option value="">Nature</option>                                       
-                                                    <option value="">News</option>                                       
+                                                    <option value="Holidays">Holidays</option>                                       
+                                                    <option value="Sports">Sports</option>                                       
+                                                    <option value="Nature">Nature</option>                                       
+                                                    <option value="News">News</option>                                       
                                             </select></td>
                                         </tr>
                                     </table>
-                                    <button style="padding: 15px;width: 200px;" type="submit" class="btn" name="create_post">Save Post</button>
+                                    <button style="padding: 15px;width: 200px;" type="submit" id="post-blog-btn" class="btn" name="create_post">Save Blog</button>
                                     
                                     <!--                                    
                                     <textarea name="body" id="div_editor1" cols="30" rows="10"></textarea><br>
@@ -218,9 +218,9 @@
                                             <option value="">Nature</option>                                       
                                             <option value="">News</option>                                       
                                     </select><br><br><br>                                                                                 
-                                        <button type="submit" class="btn" name="create_post">Save Post</button> -->
+                                        <button type="submit" class="btn" name="create_post">Save Blog</button> -->
                                                        
-                                </form>
+                                <!-- </form> -->
                         </div>                        
                     </div>
                 </div>

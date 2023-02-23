@@ -127,19 +127,20 @@
                         there’s much to catch your <span class="attention">attention!</span>
                     </p>                    
                     </div>
-                    <div class="login-card">                        
+                    <div id="login-card" class="login-card">                        
                         <h1 style="text-align: center;font-weight: bold;text-decoration: underline;padding: 30px 0px;"><b>Login Here</b></h1>
                         <div>
                             <label for="email">Email:</label><br>
-                            <input type="text" class="formInput">
+                            <input type="text" id="email" class="formInput" value="">
                         </div><br>
                         <div>
                             <label for="email">Password:</label><br>
-                            <input type="text" class="formInput">
+                            <input type="password" id="password" class="formInput" value="">
                         </div>
                         <div> <br><br>                           
-                            <input type="submit" class="loginbtn" value="Login">
-                        </div>                        
+                            <input type="submit" id="loginbtn" class="loginbtn" value="Login">
+                        </div><br>
+                        <div id="login-msg" style="color:#04f1c6;font-family:'Fira Code',monospace;font-size:16px;text-align:center;"></div>
                     </div>
                 </div>
             </section>
