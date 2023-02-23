@@ -115,21 +115,21 @@ if(fileName[0]==='login.html'){
       return response.json(); 
     }
       
-    postData('http://127.0.0.1:8000/api/users/auth/login', { email: email.value, password: password.value })
+    postData('https://node-mongo-production-1d79.up.railway.app/api/users/auth/login', { email: email.value, password: password.value })
       .then((data) => {
         console.log(data);       
         if(data.Error){
           loginmsg.innerHTML=data.Error
-        }else{
-          loginmsg.innerHTML=data.message        
-          setTimeout(Redirect(), 10000);        
         }
-      });
-      function Redirect(){
-        window.location.href = "dashboard.html";
-      }
+        
+        else if(data.message){
+          loginmsg.innerHTML=data.message  
+          window.location.href = "dashboard.html";                 
+        }
+      });      
   }
-}else{
+}
+if(fileName[0]==='dashboard.html'){
   let postblogtitle = document.getElementById('post-blog-title');
   let postblogimage = document.getElementById('post-blog-image');
   let postblogcontent = document.getElementById('div_editor1');
@@ -150,22 +150,36 @@ if(fileName[0]==='login.html'){
       });
       return response.json(); 
     }
-    
-    postBlog('http://127.0.0.1:8000/api/blogs', { title: postblogtitle.value, category: postblogcategory.value , content: postblogcontent.value })
-      .then((blog) => {
-        console.log(blog); 
-        // if(blog.Error){
-        //   loginmsg.innerHTML=blog.Error
-        // }else{
-        //   loginmsg.innerHTML=blog.message
-        //   window.location.href = "dashboard.html";
-        // }
+
+    async function postImage(url = '', image = {}) {    
+      const response = await fetch(url, {
+        method: 'PUT', 
+        // headers: {          
+        //   'Content-Type': 'application/json'
+        // },      
+        // body: JSON.stringify(image) 
+        body: JSON.stringify(image) 
       });
+      return response.json(); 
+      // console.log(image)
+    }
+    
+    postBlog('https://node-mongo-production-1d79.up.railway.app/api/blogs', { title: postblogtitle.value, category: postblogcategory.value , content: postblogcontent.value })
+      .then((blog) => {
+        console.log(blog);         
+    
+    postImage('https://node-mongo-production-1d79.up.railway.app/api/blogs/'+blog._id+'/blogPicture', { image: postblogimage.files[0] })
+      .then((image) => {
+        console.log(image);         
+      });
+
+      });
+
   }
 }
 
-
-  fetch('http://127.0.0.1:8000/api/blogs')
+if(fileName[0]==='index.html'){
+  fetch('https://node-mongo-production-1d79.up.railway.app/api/blogs')
 .then((response) => response.json())
 .then((data) => 
 data.forEach((b) => {
@@ -177,3 +191,4 @@ data.forEach((b) => {
 }),
 // blogs.innerHTML = JSON.stringify(data)
 );
+}
